@@ -14,15 +14,15 @@ window.GameLevels.ending = {
           </p>
 
           <p>
-            Desde entonces, no ha existido un solo día en el que usted no ocupe un lugar especial en mis pensamientos. Hay días en los que basta recordar su voz para sonreír; otros, simplemente imaginar cómo sería tenerla a mi lado me llena de besitos. Usted logró convertirse en mi lugar seguro, en esa persona con la que puedo ser completamente yo, y me alegra decir que yo también me volví el suyo.
+            Desde entonces, no ha existido un solo día en el que usted no ocupe un lugar especial en mis pensamientos. Hay días en los que basta recordar su voz para sonreír; otros, simplemente imaginar cómo sería tenerla a mi lado y llenarla de besitos. Usted logró convertirse en mi lugar seguro, en esa persona con la que puedo ser completamente yo, y me alegra decir que yo también me volví el suyo.
           </p>
 
           <p>
-            Cada momento que hemos compartido, por pequeño que parezca, tiene un significado inmenso para mí. Cada conversación hasta la madrugada, cada risa, cada broma, cada regaño, cada "buenos días, mi amor" y cada "buenas noches, mi corazón de melocotón" han ido formando recuerdos que guardo como algunos de los tesoros más valiosos de mi vida. Nuestra conexión es algo que todavía me cuesta explicar con palabras; simplemente se siente. Es esa tranquilidad de saber que, aunque la distancia exista, aprendimos a querernos sin un abrazo o sin un contacto que, la verdad, no me imagino cuando ya estemos cerca. Nadie ni nada nos va a separar.
+            Cada momento que hemos compartido, por pequeño que parezca, tiene un significado inmenso para mí. Cada conversación hasta la madrugada, cada risa, cada broma, cada regaño, cada "buenos días, mi amor" y cada "buenas noches, mi corazón de melocotón" han ido formando recuerdos que guardo como algunos de los tesoros más valiosos de mi vida. Nuestra conexión es algo que todavía me cuesta explicar con palabras literalmente no existe palabra que describa todo mi sentir. Es esa tranquilidad de saber que, aunque la distancia exista, aprendimos a querernos sin un abrazo o sin un contacto que, la verdad, no me imagino cuando ya estemos cerca. Nadie ni nada nos va a separar.
           </p>
 
           <p>
-            Y mientras más pasa el tiempo, más comprendo que el cariño que siento por usted no deja de crecer. No es un sentimiento pasajero ni algo que dependa de una acción, es algo que nace cada día al verla sonreír, al escucharla hablar de sus sueños, que se vuelven nuestros sueños, al admirar la persona tan maravillosa que es. Usted se ha convertido en una parte muy importante de mi vida, y agradezco profundamente aquella coincidencia o al destino que logró que pudiera conocerla, mi vida.
+            Y mientras más pasa el tiempo, más comprendo que el cariño que siento por usted no deja de crecer. No es un sentimiento pasajero ni algo que dependa de una acción, es algo que nace cada día al verla sonreír, al escucharla hablar de sus sueños, que se vuelven nuestros sueños, al admirar la persona tan maravillosa que es. Usted se ha convertido en una parte muy importante de mi vida, y agradezco profundamente aquella coincidencia o al destino que logró que pudiera conocerla mi vida.
           </p>
 
           <p>
