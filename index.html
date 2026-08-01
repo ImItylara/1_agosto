@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070914">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <title>Project December 28</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Nunito+Sans:wght@400;600;700;800;900&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="background-stars" aria-hidden="true"></canvas>
+
+  <button id="music-button" class="music-button" type="button" aria-label="Activar música">
+    ♪
+  </button>
+
+  <audio id="background-music" loop preload="metadata">
+    <source src="assets/music/nuestra-cancion.mp3" type="audio/mpeg">
+  </audio>
+
+  <main id="app" aria-live="polite"></main>
+
+  <!-- Cada nivel se registra dentro de window.GameLevels -->
+  <script src="levels/intro.js"></script>
+  <script src="levels/quiz.js"></script>
+  <script src="levels/stars.js"></script>
+  <script src="levels/calendar.js"></script>
+  <script src="levels/vault.js"></script>
+  <script src="levels/ending.js"></script>
+
+  <!-- Motor principal -->
+  <script src="script.js"></script>
+</body>
+</html>

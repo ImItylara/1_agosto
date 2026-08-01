@@ -1,0 +1,772 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #0b0914;
+
+  --panel: rgba(35, 25, 49, 0.9);
+  --panel-border: rgba(255, 205, 232, 0.25);
+
+  --text: #fff8fc;
+  --muted: #d7cbd8;
+
+  --purple: #d8b4ff;
+  --pink: #ffc2dc;
+  --gold: #ffe6a7;
+  --danger: #ff9eb8;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+
+  background: var(--background);
+  color: var(--text);
+
+  font-family: "Nunito Sans", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Fondo de estrellas */
+
+#background-stars {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 0;
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Pantallas */
+
+.screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    calc(22px + env(safe-area-inset-top))
+    calc(18px + env(safe-area-inset-right))
+    calc(22px + env(safe-area-inset-bottom))
+    calc(18px + env(safe-area-inset-left));
+
+  animation: appear 0.65s ease both;
+}
+
+/* Panel principal */
+
+.panel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: min(680px, 100%);
+  padding: 34px 26px;
+
+  border: 1px solid rgba(255, 203, 230, 0.28);
+  border-radius: 30px;
+
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(255, 184, 218, 0.2),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 90% 85%,
+      rgba(196, 164, 255, 0.22),
+      transparent 42%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(50, 31, 62, 0.96) 0%,
+      rgba(31, 24, 48, 0.97) 48%,
+      rgba(44, 28, 56, 0.96) 100%
+    );
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.48),
+    0 0 45px rgba(255, 175, 215, 0.12),
+    0 0 80px rgba(192, 150, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  text-align: center;
+
+  animation:
+    appear 0.65s ease both,
+    panel-glow 4s ease-in-out infinite alternate;
+}
+
+/* Luz rosada superior */
+
+.panel::before {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  width: 290px;
+  height: 290px;
+
+  top: -170px;
+  left: -130px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 175, 215, 0.25);
+  filter: blur(55px);
+}
+
+/* Luz lavanda inferior */
+
+.panel::after {
+  content: "";
+
+  position: absolute;
+  z-index: -1;
+
+  width: 280px;
+  height: 280px;
+
+  right: -140px;
+  bottom: -170px;
+
+  border-radius: 50%;
+
+  background: rgba(188, 150, 255, 0.23);
+  filter: blur(55px);
+}
+
+.panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Panel de la carta */
+
+.panel--letter {
+  text-align: left;
+}
+
+.panel--letter h2,
+.panel--letter .eyebrow {
+  text-align: center;
+}
+
+/* Texto pequeño superior */
+
+.eyebrow {
+  margin: 0;
+
+  color: var(--purple);
+
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 900;
+
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 12px rgba(216, 180, 255, 0.55),
+    0 0 25px rgba(255, 194, 220, 0.2);
+}
+
+/* Títulos */
+
+h1,
+h2,
+h3 {
+  font-family: "DM Serif Display", serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  max-width: 600px;
+
+  margin: 18px auto;
+
+  font-size: clamp(3rem, 10vw, 5.6rem);
+  line-height: 0.98;
+
+  text-wrap: balance;
+
+  text-shadow:
+    0 5px 30px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 194, 220, 0.08);
+}
+
+h2 {
+  margin: 14px 0;
+
+  font-size: clamp(2.2rem, 8vw, 3.6rem);
+  line-height: 1.05;
+}
+
+h3 {
+  margin: 20px 0;
+
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* Botones generales */
+
+.primary-button,
+.secondary-button,
+.answer-button,
+.star-button,
+.calendar-day {
+  border: 0;
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.primary-button:active,
+.secondary-button:active,
+.answer-button:active,
+.star-button:active,
+.calendar-day:active {
+  transform: scale(0.97);
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 50px;
+
+  margin-top: 16px;
+  padding: 14px 24px;
+
+  border-radius: 999px;
+
+  font-weight: 900;
+}
+
+/* Botón principal */
+
+.primary-button {
+  color: #28192e;
+
+  background:
+    linear-gradient(
+      135deg,
+      #d8b4ff,
+      #ffc2dc
+    );
+
+  box-shadow:
+    0 10px 35px rgba(216, 180, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+.primary-button:hover {
+  box-shadow:
+    0 12px 40px rgba(255, 181, 213, 0.32),
+    0 0 25px rgba(216, 180, 255, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Botón secundario */
+
+.secondary-button {
+  color: var(--text);
+
+  border: 1px solid rgba(255, 205, 232, 0.2);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 194, 220, 0.08),
+      rgba(216, 180, 255, 0.08)
+    );
+}
+
+/* Botón de música */
+
+.music-button {
+  position: fixed;
+  z-index: 10;
+
+  top: calc(16px + env(safe-area-inset-top));
+  right: calc(16px + env(safe-area-inset-right));
+
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid rgba(255, 205, 232, 0.22);
+  border-radius: 50%;
+
+  color: var(--text);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(47, 31, 59, 0.9),
+      rgba(28, 22, 44, 0.9)
+    );
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.music-button.is-playing {
+  box-shadow:
+    0 0 22px rgba(255, 181, 213, 0.38),
+    0 0 40px rgba(216, 180, 255, 0.22);
+}
+
+/* Ruta Perú - Honduras */
+
+.route {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+  margin: 32px 0;
+
+  font-weight: 900;
+}
+
+.route-line {
+  position: relative;
+
+  width: min(220px, 38vw);
+  height: 3px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.route-light {
+  position: absolute;
+
+  inset: 0 auto 0 0;
+
+  width: 38%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--pink),
+      var(--purple),
+      transparent
+    );
+
+  animation: travel 1.8s linear infinite;
+}
+
+/* Progreso de estrellas */
+
+.progress-stars {
+  min-height: 45px;
+
+  margin: 20px 0;
+
+  color: var(--gold);
+
+  font-size: clamp(1.8rem, 8vw, 2.4rem);
+  letter-spacing: 0.15em;
+
+  text-shadow: 0 0 18px rgba(255, 230, 167, 0.45);
+}
+
+/* Respuestas */
+
+.answer-list {
+  display: grid;
+  gap: 11px;
+}
+
+.answer-button {
+  width: 100%;
+  min-height: 48px;
+
+  padding: 13px 15px;
+
+  border: 1px solid rgba(255, 205, 232, 0.12);
+  border-radius: 17px;
+
+  color: var(--text);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 194, 220, 0.07),
+      rgba(216, 180, 255, 0.055)
+    );
+}
+
+.answer-button:hover {
+  border-color: rgba(255, 194, 220, 0.26);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 194, 220, 0.13),
+      rgba(216, 180, 255, 0.11)
+    );
+
+  box-shadow: 0 8px 25px rgba(255, 181, 213, 0.08);
+}
+
+.feedback {
+  min-height: 30px;
+
+  margin-bottom: 0;
+
+  color: var(--pink);
+  font-weight: 800;
+}
+
+/* Minijuego de estrellas */
+
+.star-field {
+  position: relative;
+
+  height: min(430px, 55vh);
+  min-height: 330px;
+
+  margin: 22px 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 205, 232, 0.12);
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(216, 180, 255, 0.08),
+      transparent 65%
+    ),
+    rgba(5, 7, 18, 0.42);
+}
+
+.star-button {
+  position: absolute;
+
+  width: 48px;
+  height: 48px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  color: rgba(255, 255, 255, 0.62);
+  background: transparent;
+
+  font-size: 1.7rem;
+}
+
+.star-button.is-correct {
+  color: var(--gold);
+
+  text-shadow:
+    0 0 15px rgba(255, 217, 128, 0.95),
+    0 0 30px rgba(255, 194, 220, 0.35);
+
+  transform: scale(1.22);
+}
+
+.star-message {
+  margin-top: 12px;
+
+  color: var(--text);
+
+  font-size: 1.1rem;
+  font-weight: 850;
+}
+
+/* Calendario */
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(255, 205, 232, 0.1);
+  border-radius: 13px;
+
+  color: var(--text);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 194, 220, 0.055),
+      rgba(216, 180, 255, 0.045)
+    );
+}
+
+.calendar-day:hover {
+  border-color: rgba(255, 194, 220, 0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 194, 220, 0.13),
+      rgba(216, 180, 255, 0.1)
+    );
+}
+
+.calendar-day.is-selected {
+  color: #291a31;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--purple),
+      var(--pink)
+    );
+
+  box-shadow:
+    0 0 22px rgba(255, 181, 213, 0.3),
+    0 8px 25px rgba(216, 180, 255, 0.18);
+}
+
+/* Código de caja fuerte */
+
+.vault-input {
+  display: block;
+
+  width: min(230px, 100%);
+
+  margin: 25px auto 8px;
+  padding: 16px;
+
+  border: 1px solid rgba(255, 205, 232, 0.2);
+  border-radius: 17px;
+
+  outline: none;
+
+  color: var(--text);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 194, 220, 0.07),
+      rgba(216, 180, 255, 0.06)
+    );
+
+  box-shadow:
+    inset 0 2px 10px rgba(0, 0, 0, 0.18);
+
+  text-align: center;
+
+  font-size: 1.9rem;
+  letter-spacing: 0.4em;
+}
+
+.vault-input:focus {
+  border-color: rgba(255, 194, 220, 0.48);
+
+  box-shadow:
+    0 0 22px rgba(255, 181, 213, 0.16),
+    inset 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+
+/* Carta */
+
+.letter-text p {
+  color: #e0d5e3;
+}
+
+.signature {
+  margin-top: 30px;
+
+  color: var(--text) !important;
+  font-weight: 800;
+}
+
+/* Marco de la foto */
+
+.empty-frame {
+  position: relative;
+
+  width: min(310px, 76vw);
+  aspect-ratio: 4 / 5;
+
+  display: grid;
+  place-items: center;
+
+  margin: 28px auto;
+
+  border: 10px solid rgba(255, 205, 232, 0.18);
+  border-radius: 8px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 194, 220, 0.09),
+      rgba(216, 180, 255, 0.04),
+      transparent 70%
+    );
+
+  box-shadow:
+    inset 0 0 45px rgba(255, 181, 213, 0.1),
+    0 25px 60px rgba(0, 0, 0, 0.32),
+    0 0 30px rgba(216, 180, 255, 0.1);
+}
+
+.empty-frame::before {
+  content: "";
+
+  position: absolute;
+  inset: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+.empty-frame span {
+  color: var(--pink);
+
+  font-size: 4.5rem;
+
+  text-shadow:
+    0 0 20px rgba(255, 181, 213, 0.42),
+    0 0 40px rgba(216, 180, 255, 0.18);
+}
+
+.small-note {
+  font-size: 0.88rem;
+}
+
+/* Animaciones */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(13px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes travel {
+  from {
+    transform: translateX(-130%);
+  }
+
+  to {
+    transform: translateX(390%);
+  }
+}
+
+@keyframes panel-glow {
+  from {
+    border-color: rgba(255, 194, 220, 0.22);
+
+    box-shadow:
+      0 30px 90px rgba(0, 0, 0, 0.48),
+      0 0 35px rgba(255, 170, 210, 0.13),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  to {
+    border-color: rgba(216, 180, 255, 0.42);
+
+    box-shadow:
+      0 30px 90px rgba(0, 0, 0, 0.48),
+      0 0 58px rgba(208, 166, 255, 0.21),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* Teléfonos */
+
+@media (max-width: 520px) {
+  .panel {
+    padding: 28px 18px;
+    border-radius: 23px;
+  }
+
+  .calendar {
+    gap: 6px;
+  }
+
+  .calendar-day {
+    border-radius: 10px;
+    font-size: 0.9rem;
+  }
+
+  .route {
+    gap: 9px;
+    font-size: 0.92rem;
+  }
+}
+
+/* Reducir animaciones por accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
