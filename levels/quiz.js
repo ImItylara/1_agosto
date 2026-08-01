@@ -48,11 +48,13 @@ window.GameLevels.quiz = {
           <p class="eyebrow">MISIÓN 01</p>
           <h2>¿Cuánto sabe de nosotros?</h2>
 
-          <div class="route">
+            <div class="route">
             <span>🇵🇪 Yo</span>
+
             <div class="route-line">
               <span class="route-light"></span>
             </div>
+
             <span>🇭🇳 Mi vida</span>
           </div>
 
