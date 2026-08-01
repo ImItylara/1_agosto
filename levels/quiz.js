@@ -49,13 +49,13 @@ window.GameLevels.quiz = {
           <h2>¿Cuánto sabe de nosotros?</h2>
 
             <div class="route">
-            <span>🇵🇪 Yo</span>
+            <span>Yo</span>
 
             <div class="route-line">
               <span class="route-light"></span>
             </div>
 
-            <span>🇭🇳 Mi vida</span>
+            <span>Mi vida</span>
           </div>
 
           <div id="quiz-stars" class="progress-stars">
