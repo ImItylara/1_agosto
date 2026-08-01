@@ -14,7 +14,7 @@ window.GameLevels.quiz = {
     },
     {
       question: "¿Cuál fue la primera película o serie que vimos juntos?",
-      options: ["Raya y el ultimo dragon", "El dragón de la tetera", "Shuerk 2", "Suzume"],
+      options: ["Raya y el ultimo dragon", "El dragón de la tetera", "Shrek", "Suzume"],
       correct: [0,1]
     },
     {
