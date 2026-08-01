@@ -6,7 +6,7 @@ window.GameLevels.intro = {
       <section class="screen">
         <div class="panel">
           <p class="eyebrow">3,112.62 km</p>
-          <h1>La Encontre</h1>
+          <h1>La Encontré</h1>
           <p>
             Para la persona que convirtió miles de kilómetros
             en algo que ya no se siente tan lejos.
